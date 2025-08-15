@@ -1,29 +1,29 @@
-import { useState } from "react"
+import { useState } from "react";
+import { ReflectionForm } from "./components/ReflectionForm";
 
 function App() {
-  const [good, setGood] = useState('');
+  const [good, setGood] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setGood('')
-    
-    console.log(good)
-  } 
+    e.preventDefault();
+    console.log(good);
+    setGood("");
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setGood(e.target.value);
-  }
+  };
 
   return (
     <>
       <h1>ふりかえり</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="good">良かったこと</label>
-        <textarea id="good" name="good" onChange={handleChange} value={good} />
-        <button type="submit">保存</button>
-      </form>
+      <ReflectionForm
+        value={good}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
