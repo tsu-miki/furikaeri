@@ -10,7 +10,7 @@ function App() {
     const fetchData = async () => {
       const res = await fetch("./storage/data.json");
       const jsonData = await res.json();
-      setGoodList([jsonData, ...goodList]);
+      setGoodList([jsonData]);
     };
 
     fetchData();
