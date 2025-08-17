@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ReflectionForm } from "./components/ReflectionForm";
 import type { Reflection } from "./types/Reflection";
+import { GoodList } from "./components/GoodList";
 
 function App() {
   const [good, setGood] = useState("");
@@ -35,14 +36,7 @@ function App() {
         onSubmit={handleSubmit}
       />
       <h2>一覧</h2>
-      <section>
-        {goodList.map((item) => (
-          <div>
-            <p>{item.good}</p>
-            <p>{item.date.toString()}</p>
-          </div>
-        ))}
-      </section>
+      <GoodList items={goodList} />
     </>
   );
 }
